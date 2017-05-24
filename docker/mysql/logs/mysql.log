@@ -1,0 +1,177 @@
+2017-05-11T02:26:37.682323Z   34 Connect	homestead@172.18.0.5 on homestead using TCP/IP
+2017-05-11T02:26:37.684871Z   34 Query	use `homestead`
+2017-05-11T02:26:37.685381Z   34 Prepare	set names 'utf8mb4' collate 'utf8mb4_unicode_ci'
+2017-05-11T02:26:37.685712Z   34 Execute	set names 'utf8mb4' collate 'utf8mb4_unicode_ci'
+2017-05-11T02:26:37.686117Z   34 Close stmt	
+2017-05-11T02:26:37.686464Z   34 Prepare	set session sql_mode='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION'
+2017-05-11T02:26:37.686744Z   34 Execute	set session sql_mode='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION'
+2017-05-11T02:26:37.687109Z   34 Close stmt	
+2017-05-11T02:26:37.687789Z   34 Prepare	select * from `surveys` where `archived` = ? and `slug` = ? order by `created_at` desc limit 1
+2017-05-11T02:26:37.688869Z   34 Execute	select * from `surveys` where `archived` = 0 and `slug` = 'd82487b0' order by `created_at` desc limit 1
+2017-05-11T02:26:37.689487Z   34 Close stmt	
+2017-05-11T02:26:37.728298Z   34 Prepare	select * from `teams` where `teams`.`id` in (?)
+2017-05-11T02:26:37.728862Z   34 Execute	select * from `teams` where `teams`.`id` in (2)
+2017-05-11T02:26:37.729558Z   34 Close stmt	
+2017-05-11T02:26:37.774505Z   34 Prepare	insert into `visits` (`survey_id`, `device`, `country`, `updated_at`, `created_at`) values (?, ?, ?, ?, ?)
+2017-05-11T02:26:37.775060Z   34 Execute	insert into `visits` (`survey_id`, `device`, `country`, `updated_at`, `created_at`) values (13, 'desktop', NULL, '2017-05-11 02:26:37', '2017-05-11 02:26:37')
+2017-05-11T02:26:37.779778Z   34 Close stmt	
+2017-05-11T02:26:37.880529Z   34 Quit	
+2017-05-11T02:27:11.383701Z    2 Query	explain select * from `surveys` where `archived` = 0 and `slug` = 'd82487b0' order by `created_at` desc limit 1
+2017-05-11T02:27:49.545627Z   35 Connect	homestead@172.18.0.5 on homestead using TCP/IP
+2017-05-11T02:27:49.550138Z   35 Query	use `homestead`
+2017-05-11T02:27:49.550607Z   35 Prepare	set names 'utf8mb4' collate 'utf8mb4_unicode_ci'
+2017-05-11T02:27:49.550993Z   35 Execute	set names 'utf8mb4' collate 'utf8mb4_unicode_ci'
+2017-05-11T02:27:49.551381Z   35 Close stmt	
+2017-05-11T02:27:49.551779Z   35 Prepare	set session sql_mode='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION'
+2017-05-11T02:27:49.552213Z   35 Execute	set session sql_mode='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION'
+2017-05-11T02:27:49.552673Z   35 Close stmt	
+2017-05-11T02:27:49.553124Z   35 Prepare	select * from `surveys` where `archived` = ? and `slug` = ? order by `created_at` desc limit 1
+2017-05-11T02:27:49.556394Z   35 Execute	select * from `surveys` where `archived` = 0 and `slug` = 'd82487b0' order by `created_at` desc limit 1
+2017-05-11T02:27:49.557065Z   35 Close stmt	
+2017-05-11T02:27:49.616063Z   35 Prepare	select * from `teams` where `teams`.`id` in (?)
+2017-05-11T02:27:49.616740Z   35 Execute	select * from `teams` where `teams`.`id` in (2)
+2017-05-11T02:27:49.617466Z   35 Close stmt	
+2017-05-11T02:27:49.809997Z   35 Prepare	select * from `surveys` where `surveys`.`id` = ? order by `created_at` desc limit 1
+2017-05-11T02:27:49.810510Z   35 Execute	select * from `surveys` where `surveys`.`id` = 13 order by `created_at` desc limit 1
+2017-05-11T02:27:49.811309Z   35 Close stmt	
+2017-05-11T02:27:49.820595Z   35 Prepare	insert into `responses` (`score`, `via`, `cid`, `name`, `c1`, `c2`, `c3`, `c4`, `c5`, `survey_id`, `device`, `country`, `uuid`, `updated_at`, `created_at`) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2017-05-11T02:27:49.821119Z   35 Execute	insert into `responses` (`score`, `via`, `cid`, `name`, `c1`, `c2`, `c3`, `c4`, `c5`, `survey_id`, `device`, `country`, `uuid`, `updated_at`, `created_at`) values ('8', 'link', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 13, 'desktop', NULL, '605bbead-b609-4096-9a55-516dc59fd7d1', '2017-05-11 02:27:49', '2017-05-11 02:27:49')
+2017-05-11T02:27:49.823952Z   35 Close stmt	
+2017-05-11T02:27:49.870886Z   35 Quit	
+2017-05-11T02:27:52.589454Z   36 Connect	homestead@172.18.0.5 on homestead using TCP/IP
+2017-05-11T02:27:52.593741Z   36 Query	use `homestead`
+2017-05-11T02:27:52.594284Z   36 Prepare	set names 'utf8mb4' collate 'utf8mb4_unicode_ci'
+2017-05-11T02:27:52.594623Z   36 Execute	set names 'utf8mb4' collate 'utf8mb4_unicode_ci'
+2017-05-11T02:27:52.595027Z   36 Close stmt	
+2017-05-11T02:27:52.595398Z   36 Prepare	set session sql_mode='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION'
+2017-05-11T02:27:52.595731Z   36 Execute	set session sql_mode='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION'
+2017-05-11T02:27:52.596262Z   36 Close stmt	
+2017-05-11T02:27:52.596982Z   36 Prepare	select * from `surveys` where `archived` = ? and `slug` = ? order by `created_at` desc limit 1
+2017-05-11T02:27:52.600004Z   36 Execute	select * from `surveys` where `archived` = 0 and `slug` = 'd82487b0' order by `created_at` desc limit 1
+2017-05-11T02:27:52.600642Z   36 Close stmt	
+2017-05-11T02:27:52.663163Z   36 Prepare	select * from `teams` where `teams`.`id` in (?)
+2017-05-11T02:27:52.663601Z   36 Execute	select * from `teams` where `teams`.`id` in (2)
+2017-05-11T02:27:52.664092Z   36 Close stmt	
+2017-05-11T02:27:52.713704Z   36 Prepare	select * from `responses` where `uuid` = ? limit 1
+2017-05-11T02:27:52.714315Z   36 Execute	select * from `responses` where `uuid` = '605bbead-b609-4096-9a55-516dc59fd7d1' limit 1
+2017-05-11T02:27:52.714983Z   36 Close stmt	
+2017-05-11T02:27:52.716790Z   36 Prepare	update `responses` set `feedback` = ?, `updated_at` = ? where `id` = ?
+2017-05-11T02:27:52.717279Z   36 Execute	update `responses` set `feedback` = 'another thing', `updated_at` = '2017-05-11 02:27:52' where `id` = 4001
+2017-05-11T02:27:52.720307Z   36 Close stmt	
+2017-05-11T02:27:52.752117Z   36 Quit	
+2017-05-11T02:28:25.482289Z    2 Query	explain select * from `responses` where `uuid` = '605bbead-b609-4096-9a55-516dc59fd7d1' limit 1
+2017-05-11T02:29:33.281934Z   37 Connect	homestead@172.18.0.5 on homestead using TCP/IP
+2017-05-11T02:29:33.287693Z   37 Query	use `homestead`
+2017-05-11T02:29:33.288207Z   37 Prepare	set names 'utf8mb4' collate 'utf8mb4_unicode_ci'
+2017-05-11T02:29:33.288487Z   37 Execute	set names 'utf8mb4' collate 'utf8mb4_unicode_ci'
+2017-05-11T02:29:33.288875Z   37 Close stmt	
+2017-05-11T02:29:33.289205Z   37 Prepare	set session sql_mode='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION'
+2017-05-11T02:29:33.289480Z   37 Execute	set session sql_mode='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION'
+2017-05-11T02:29:33.290854Z   37 Close stmt	
+2017-05-11T02:29:33.291426Z   37 Prepare	select * from `users` where `id` = ? limit 1
+2017-05-11T02:29:33.294152Z   37 Execute	select * from `users` where `id` = 2 limit 1
+2017-05-11T02:29:33.294680Z   37 Close stmt	
+2017-05-11T02:29:33.370991Z   37 Prepare	select * from `teams` where `teams`.`id` = ? and `teams`.`id` is not null limit 1
+2017-05-11T02:29:33.371498Z   37 Execute	select * from `teams` where `teams`.`id` = 2 and `teams`.`id` is not null limit 1
+2017-05-11T02:29:33.372162Z   37 Close stmt	
+2017-05-11T02:29:33.375017Z   37 Prepare	select * from `surveys` where `team_id` = ? and `surveys`.`id` = ? order by `created_at` desc limit 1
+2017-05-11T02:29:33.375542Z   37 Execute	select * from `surveys` where `team_id` = 2 and `surveys`.`id` = '13' order by `created_at` desc limit 1
+2017-05-11T02:29:33.376454Z   37 Close stmt	
+2017-05-11T02:29:33.462280Z   37 Quit	
+2017-05-11T02:29:33.651430Z   38 Connect	homestead@172.18.0.5 on homestead using TCP/IP
+2017-05-11T02:29:33.652351Z   38 Query	use `homestead`
+2017-05-11T02:29:33.653199Z   38 Prepare	set names 'utf8mb4' collate 'utf8mb4_unicode_ci'
+2017-05-11T02:29:33.653720Z   38 Execute	set names 'utf8mb4' collate 'utf8mb4_unicode_ci'
+2017-05-11T02:29:33.654427Z   38 Close stmt	
+2017-05-11T02:29:33.655002Z   38 Prepare	set session sql_mode='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION'
+2017-05-11T02:29:33.655533Z   38 Execute	set session sql_mode='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION'
+2017-05-11T02:29:33.656247Z   38 Close stmt	
+2017-05-11T02:29:33.657867Z   38 Prepare	select * from `surveys` where `archived` = ? and `slug` = ? order by `created_at` desc limit 1
+2017-05-11T02:29:33.658635Z   38 Execute	select * from `surveys` where `archived` = 0 and `slug` = 'testing' order by `created_at` desc limit 1
+2017-05-11T02:29:33.660667Z   38 Close stmt	
+2017-05-11T02:29:33.672559Z   38 Prepare	select * from `teams` where `teams`.`id` in (?)
+2017-05-11T02:29:33.674371Z   38 Execute	select * from `teams` where `teams`.`id` in (1)
+2017-05-11T02:29:33.676888Z   38 Close stmt	
+2017-05-11T02:29:33.711470Z   38 Quit	
+2017-05-11T02:29:34.004626Z   39 Connect	homestead@172.18.0.5 on homestead using TCP/IP
+2017-05-11T02:29:34.005341Z   39 Query	use `homestead`
+2017-05-11T02:29:34.006095Z   39 Prepare	set names 'utf8mb4' collate 'utf8mb4_unicode_ci'
+2017-05-11T02:29:34.007778Z   39 Execute	set names 'utf8mb4' collate 'utf8mb4_unicode_ci'
+2017-05-11T02:29:34.008399Z   39 Close stmt	
+2017-05-11T02:29:34.009186Z   39 Prepare	set session sql_mode='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION'
+2017-05-11T02:29:34.009686Z   39 Execute	set session sql_mode='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION'
+2017-05-11T02:29:34.010259Z   39 Close stmt	
+2017-05-11T02:29:34.010790Z   39 Prepare	select * from `users` where `id` = ? limit 1
+2017-05-11T02:29:34.011318Z   39 Execute	select * from `users` where `id` = 2 limit 1
+2017-05-11T02:29:34.011933Z   39 Close stmt	
+2017-05-11T02:29:34.016705Z   39 Prepare	select * from `surveys` where `surveys`.`id` = ? order by `created_at` desc limit 1
+2017-05-11T02:29:34.017403Z   39 Execute	select * from `surveys` where `surveys`.`id` = '13' order by `created_at` desc limit 1
+2017-05-11T02:29:34.019066Z   39 Close stmt	
+2017-05-11T02:29:34.022254Z   39 Prepare	select * from `teams` where `teams`.`id` = ? and `teams`.`id` is not null limit 1
+2017-05-11T02:29:34.024491Z   39 Execute	select * from `teams` where `teams`.`id` = 2 and `teams`.`id` is not null limit 1
+2017-05-11T02:29:34.025362Z   39 Close stmt	
+2017-05-11T02:29:34.039207Z   39 Prepare	select count(*) as aggregate from `responses` where `responses`.`survey_id` = ? and `responses`.`survey_id` is not null and `score` >= ?
+2017-05-11T02:29:34.041159Z   39 Execute	select count(*) as aggregate from `responses` where `responses`.`survey_id` = 13 and `responses`.`survey_id` is not null and `score` >= 9
+2017-05-11T02:29:34.042135Z   39 Close stmt	
+2017-05-11T02:29:34.043980Z   39 Prepare	select count(*) as aggregate from `responses` where `responses`.`survey_id` = ? and `responses`.`survey_id` is not null and `score` in (?, ?)
+2017-05-11T02:29:34.044625Z   39 Execute	select count(*) as aggregate from `responses` where `responses`.`survey_id` = 13 and `responses`.`survey_id` is not null and `score` in (7, 8)
+2017-05-11T02:29:34.045435Z   39 Close stmt	
+2017-05-11T02:29:34.047483Z   39 Prepare	select count(*) as aggregate from `responses` where `responses`.`survey_id` = ? and `responses`.`survey_id` is not null and `score` <= ?
+2017-05-11T02:29:34.048238Z   39 Execute	select count(*) as aggregate from `responses` where `responses`.`survey_id` = 13 and `responses`.`survey_id` is not null and `score` <= 6
+2017-05-11T02:29:34.049383Z   39 Close stmt	
+2017-05-11T02:29:34.051097Z   39 Prepare	select count(*) as aggregate from `responses` where `responses`.`survey_id` = ? and `responses`.`survey_id` is not null and `feedback` is not null
+2017-05-11T02:29:34.051911Z   39 Execute	select count(*) as aggregate from `responses` where `responses`.`survey_id` = 13 and `responses`.`survey_id` is not null and `feedback` is not null
+2017-05-11T02:29:34.052933Z   39 Close stmt	
+2017-05-11T02:29:34.072411Z   39 Quit	
+2017-05-11T02:30:15.658609Z    2 Query	select count(*) as aggregate from `responses` where `responses`.`survey_id` = 13 and `responses`.`survey_id` is not null and `score` >= 9
+2017-05-11T02:30:23.446497Z    2 Query	explain select count(*) as aggregate from `responses` where `responses`.`survey_id` = 13 and `responses`.`survey_id` is not null and `score` >= 9
+2017-05-11T02:31:37.281670Z   40 Connect	homestead@172.18.0.5 on homestead using TCP/IP
+2017-05-11T02:31:37.286137Z   40 Query	use `homestead`
+2017-05-11T02:31:37.286719Z   40 Prepare	set names 'utf8mb4' collate 'utf8mb4_unicode_ci'
+2017-05-11T02:31:37.287052Z   40 Execute	set names 'utf8mb4' collate 'utf8mb4_unicode_ci'
+2017-05-11T02:31:37.287459Z   40 Close stmt	
+2017-05-11T02:31:37.287839Z   40 Prepare	set session sql_mode='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION'
+2017-05-11T02:31:37.288738Z   40 Execute	set session sql_mode='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION'
+2017-05-11T02:31:37.289350Z   40 Close stmt	
+2017-05-11T02:31:37.290001Z   40 Prepare	select * from `surveys` where `archived` = ? and `slug` = ? order by `created_at` desc limit 1
+2017-05-11T02:31:37.292806Z   40 Execute	select * from `surveys` where `archived` = 0 and `slug` = 'teams' order by `created_at` desc limit 1
+2017-05-11T02:31:37.294004Z   40 Close stmt	
+2017-05-11T02:31:37.400873Z   40 Quit	
+2017-05-11T02:31:54.349908Z    2 Query	select * from `surveys` where `archived` = 0 and `slug` = 'teams' order by `created_at` desc limit 1
+2017-05-11T02:32:06.264320Z    2 Query	explain select * from `surveys` where `archived` = 0 and `slug` = 'teams' order by `created_at` desc limit 1
+2017-05-11T02:32:17.534768Z    2 Query	select * from `surveys` where `archived` = 0 and `slug` = 'teams' order by `created_at` desc limit 1
+2017-05-11T02:32:22.335605Z    2 Query	explain select * from `surveys` where `archived` = 0 and `slug` = 'teams' order by `created_at` desc limit 1
+2017-05-11T02:32:30.996777Z    2 Query	SHOW TABLE STATUS LIKE 'surveys'
+2017-05-11T02:32:30.998283Z    2 Query	SHOW CREATE TABLE `surveys`
+2017-05-11T02:32:31.056732Z    2 Query	SELECT COUNT(1) FROM `surveys`
+2017-05-11T02:32:32.093919Z    2 Query	SHOW TABLES IN information_schema LIKE 'ENGINES'
+2017-05-11T02:32:32.095103Z    2 Query	SELECT Engine, Support FROM `information_schema`.`engines` WHERE SUPPORT IN ('DEFAULT', 'YES')
+2017-05-11T02:32:32.096245Z    2 Query	SELECT * FROM `information_schema`.`character_sets` ORDER BY `character_set_name` ASC
+2017-05-11T02:32:32.097659Z    2 Query	SELECT * FROM `information_schema`.`collations` WHERE character_set_name = 'utf8mb4' ORDER BY `collation_name` ASC
+2017-05-11T02:32:44.533011Z    2 Query	SHOW INDEX FROM `surveys`
+2017-05-11T02:33:31.760419Z    2 Query	explain select * from `surveys` where `archived` = 0 and `slug` = 'd82487b0' order by `created_at` desc limit 1
+2017-05-11T02:34:56.464011Z   41 Connect	root@localhost on  using Socket
+2017-05-11T02:34:56.464820Z   41 Query	select @@version_comment limit 1
+2017-05-11T02:35:07.089309Z   41 Query	SELECT DATABASE()
+2017-05-11T02:35:07.090138Z   41 Init DB	homestead
+2017-05-11T02:35:07.092052Z   41 Query	show databases
+2017-05-11T02:35:07.094917Z   41 Query	show tables
+2017-05-11T02:35:07.095976Z   41 Field List	groups 
+2017-05-11T02:35:07.096934Z   41 Field List	invitations 
+2017-05-11T02:35:07.097702Z   41 Field List	jobs 
+2017-05-11T02:35:07.099404Z   41 Field List	meta 
+2017-05-11T02:35:07.100025Z   41 Field List	migrations 
+2017-05-11T02:35:07.100615Z   41 Field List	password_resets 
+2017-05-11T02:35:07.101145Z   41 Field List	responses 
+2017-05-11T02:35:07.102739Z   41 Field List	surveys 
+2017-05-11T02:35:07.104093Z   41 Field List	team_users 
+2017-05-11T02:35:07.104577Z   41 Field List	teams 
+2017-05-11T02:35:07.105141Z   41 Field List	users 
+2017-05-11T02:35:07.105691Z   41 Field List	visits 
+2017-05-11T02:35:07.106187Z   41 Field List	waiting 
+2017-05-11T02:35:11.606892Z   41 Query	explain select * from `surveys` where `archived` = 0 and `slug` = 'd82487b0' order by `created_at` desc limit 1
+2017-05-11T02:35:31.324645Z   41 Query	explain select count(*) as aggregate from `responses` where `responses`.`survey_id` = 13 and `responses`.`survey_id` is not null and `score` >= 9
+2017-05-11T02:35:51.047980Z   41 Query	explain select * from `responses` where `uuid` = '605bbead-b609-4096-9a55-516dc59fd7d1' limit 1
+2017-05-11T02:36:02.928086Z   41 Query	explain select * from `surveys` where `archived` = 0 and `slug` = 'd82487b0' order by `created_at` desc limit 1
+2017-05-11T02:37:05.204504Z   41 Quit	
+2017-05-11T02:37:19.934572Z    2 Quit	
