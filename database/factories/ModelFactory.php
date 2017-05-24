@@ -22,3 +22,29 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+
+$factory->define(App\Customer::class, function (Faker\Generator $faker) {
+    return [
+        'user_id' => function() {
+            return factory(App\User::class)->create();
+        },
+        'hash' => str_random(64),
+    ];
+});
+
+
+$factory->define(App\Pageview::class, function (Faker\Generator $faker) {
+    $url = $faker->url;
+    $date = $faker->dateTimeBetween('-120 days', 'now');
+    return [
+        'customer_id' => 1, // Def over-ride this
+        'user_id' => 1, // Def over-ride this
+        'uri' => vsprintf('%s', [
+            parse_url($url, PHP_URL_PATH),
+        ]),
+        'domain' => parse_url($url, PHP_URL_HOST),
+        'updated_at' => $date,
+        'created_at' => $date,
+    ];
+});
