@@ -23,13 +23,13 @@ class DatabaseSeeder extends Seeder
 
         foreach($users as $user)
         {
-            $customers = factory(Customer::class, mt_rand(400,600))->create([
-                'user_id' => $user->id,
+            $customers = factory(Customer::class, mt_rand(10,100))->create([
+                'user_id' => $user->id, // TODO: This hard-codes the user, so we want many less customers per user
             ]);
 
             foreach($customers as $customer)
             {
-                factory(Pageview::class, mt_rand(2,4000))->create([
+                factory(Pageview::class, mt_rand(2,150))->create([
                     'customer_id' => $customer->id,
                     'user_id' => $customer->user_id,
                 ]);
