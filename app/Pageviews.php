@@ -24,9 +24,12 @@ class Pageviews
 
     public function lastDays($days)
     {
+        // Get very beginning of the day, $date days ago
+        $date = new \DateTime(date('Y-m-d', strtotime('-'.$days.' days')));
+
         return Pageview::select(DB::raw('COUNT(id) as daily_total, DATE(created_at) as date'))
             ->where('user_id', $this->user->id)
-            ->where('created_at', '>=', new \DateTime('@'.strtotime('-'.$days.' days')))
+            ->where('created_at', '>=', $date)
             ->groupBy('date')
             ->orderBy('date', 'asc')
             ->get();

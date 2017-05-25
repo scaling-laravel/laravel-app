@@ -5,7 +5,24 @@
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-md-8">
+                            Pageviews
+                        </div>
+                        <div class="col-md-4">
+                            <form class="form">
+                                <div class="form-group">
+                                    <select id="timeline" name="timeline" class="form-control">
+                                        @foreach(['week' => 'Last Week', 'month' => 'Last Month', 'quarter' => 'Last Quarter'] as $timeline => $label)
+                                            <option value="{{ $timeline }}" @if(request()->timeline == $timeline) selected @endif>{{ $label }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="panel-body">
 
@@ -20,6 +37,12 @@
 
 @section('footer-js')
 <script>
+    $(function() {
+        $('#timeline').change(function(e) {
+            window.location = '/home?timeline='+$(this).val();
+        });
+    });
+
     var ctx = document.getElementById("myChart").getContext('2d');
     var myChart = new Chart(ctx, {
         type: 'line',

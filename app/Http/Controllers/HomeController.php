@@ -24,8 +24,27 @@ class HomeController extends Controller
      */
     public function index()
     {
+        switch(request()->get('timeline', 'week'))
+        {
+            case 'month':
+                $fn = 'lastMonth';
+                $param = null;
+                break;
+            case 'quarter':
+                $fn = 'lastDays';
+                $param = 90;
+                break;
+            case 'week':
+            default:
+                $fn = 'lastWeek';
+                $param = null;
+                break;
+        }
+
+
+
         $pageViews = ( new PageViews(auth()->user()) )
-            ->lastWeek(); //lastMonth(), lastDays(int $days)
+            ->$fn($param); //lastWeek() lastMonth(), lastDays(int $days)
 
         return view('home', [
             'pageviews' => $pageViews,
