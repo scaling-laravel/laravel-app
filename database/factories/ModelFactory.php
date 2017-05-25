@@ -34,16 +34,13 @@ $factory->define(App\Customer::class, function (Faker\Generator $faker) {
 });
 
 
-$factory->define(App\Pageview::class, function (Faker\Generator $faker) {
-    $url = $faker->url;
+$factory->define(App\Pageview::class, function (Faker\Generator $faker) {;
     $date = $faker->dateTimeBetween('-120 days', 'now');
     return [
         'customer_id' => 1, // Def over-ride this
         'user_id' => 1, // Def over-ride this
-        'uri' => vsprintf('%s', [
-            parse_url($url, PHP_URL_PATH),
-        ]),
-        'domain' => parse_url($url, PHP_URL_HOST),
+        'uri' => '/'.$faker->slug,
+        'domain' => $faker->domainName,
         'updated_at' => $date,
         'created_at' => $date,
     ];
