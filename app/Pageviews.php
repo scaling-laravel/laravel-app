@@ -12,26 +12,27 @@ class Pageviews
         $this->user = $user;
     }
 
-    public function lastWeek()
-    {
-        return $this->lastDays(7);
-    }
-
-    public function lastMonth()
-    {
-        return $this->lastDays(30);
-    }
-
-    public function lastDays($days)
+    public function lastDays($days, $domain=null, $customer=null)
     {
         // Get very beginning of the day, $date days ago
         $date = new \DateTime(date('Y-m-d', strtotime('-'.$days.' days')));
 
-        return Pageview::select(DB::raw('COUNT(id) as daily_total, DATE(created_at) as date'))
+        $query = Pageview::select(DB::raw('COUNT(id) as daily_total, DATE(created_at) as date'))
             ->where('user_id', $this->user->id)
             ->where('created_at', '>=', $date)
             ->groupBy('date')
-            ->orderBy('date', 'asc')
+            ->orderBy('date', 'asc');
+
+        if( $domain ) $query->where('domain', $domain);
+        if( $customer ) $query->where('customer_id', $customer);
+
+        return $query->get();
+    }
+
+    public function domains()
+    {
+        return Pageview::select(DB::raw('DISTINCT domain'))
+            ->where('user_id', $this->user->id)
             ->get();
     }
 

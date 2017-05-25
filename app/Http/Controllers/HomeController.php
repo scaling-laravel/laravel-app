@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Customer;
 use App\Pageviews;
 use Illuminate\Http\Request;
 
@@ -24,30 +25,18 @@ class HomeController extends Controller
      */
     public function index()
     {
-        switch(request()->get('timeline', 'week'))
-        {
-            case 'month':
-                $fn = 'lastMonth';
-                $param = null;
-                break;
-            case 'quarter':
-                $fn = 'lastDays';
-                $param = 90;
-                break;
-            case 'week':
-            default:
-                $fn = 'lastWeek';
-                $param = null;
-                break;
-        }
+        // Filters
+        $daysBack = (int)request()->get('timeline', 7);
+        $domain = request()->get('domain', null);
+        $customer = request()->get('customer', null);
 
-
-
-        $pageViews = ( new PageViews(auth()->user()) )
-            ->$fn($param); //lastWeek() lastMonth(), lastDays(int $days)
+        // Pageview "Repository"
+        $pageViews = new PageViews(auth()->user());
 
         return view('home', [
-            'pageviews' => $pageViews,
+            'pageviews' => $pageViews->lastDays($daysBack, $domain, $customer),
+            'domains' => $pageViews->domains(),
+            'customers' => Customer::select('id')->where('user_id', auth()->user()->id)->get(),
         ]);
     }
 }

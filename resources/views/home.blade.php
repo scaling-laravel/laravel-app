@@ -7,19 +7,40 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <div class="row">
-                        <div class="col-md-8">
+                        <div class="col-md-3">
                             Pageviews
                         </div>
-                        <div class="col-md-4">
-                            <form class="form">
-                                <div class="form-group">
-                                    <select id="timeline" name="timeline" class="form-control">
-                                        @foreach(['week' => 'Last Week', 'month' => 'Last Month', 'quarter' => 'Last Quarter'] as $timeline => $label)
-                                            <option value="{{ $timeline }}" @if(request()->timeline == $timeline) selected @endif>{{ $label }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </form>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="timeline">Timeline</label>
+                                <select id="timeline" name="timeline" class="form-control">
+                                    @foreach(['7' => 'Last Week', '30' => 'Last Month', '90' => 'Last Quarter',] as $timeline => $label)
+                                        <option value="{{ $timeline }}" @if(request()->timeline == $timeline) selected @endif>{{ $label }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="domain">Domain</label>
+                                <select id="domain" name="domain" class="form-control">
+                                    <option value="">None</option>
+                                    @foreach($domains->pluck('domain') as $domain)
+                                        <option value="{{ $domain }}" @if(request()->domain == $domain) selected @endif>{{ $domain }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="customer">Customer</label>
+                                <select id="customer" name="customer" class="form-control">
+                                    <option value="">None</option>
+                                    @foreach($customers as $customer)
+                                        <option value="{{ $customer->id }}" @if(request()->customer == $customer->id) selected @endif>{{ $customer->id }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -38,9 +59,16 @@
 @section('footer-js')
 <script>
     $(function() {
-        $('#timeline').change(function(e) {
-            window.location = '/home?timeline='+$(this).val();
-        });
+        var filter = function(e)
+        {
+            var timeline = $('#timeline').val();
+            var domain = $('#domain').val();
+            var customer = $('#customer').val();
+
+            window.location = '/home?timeline='+timeline+'&domain='+encodeURI(domain)+'&customer='+customer;
+        }
+
+        $('select').change(filter);
     });
 
     var ctx = document.getElementById("myChart").getContext('2d');
