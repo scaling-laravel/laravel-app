@@ -10,3 +10,5 @@ Homestead.yaml
 npm-debug.log
 .env
 .DS_Store
+exports/*
+!exports/.gitkeep
