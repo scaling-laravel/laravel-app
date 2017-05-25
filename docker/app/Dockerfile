@@ -31,6 +31,7 @@ RUN ln -sf /dev/stdout /var/log/nginx/access.log \
 COPY default /etc/nginx/sites-available/default
 COPY php-fpm.conf /etc/php/7.1/fpm/php-fpm.conf
 COPY xdebug.ini /etc/php/7.1/mods-available/xdebug.ini
+COPY php.ini /etc/php/7.1/fpm/php.ini
 
 EXPOSE 80
 
