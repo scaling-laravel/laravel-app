@@ -8,11 +8,6 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
     public function __construct()
     {
         $this->middleware('auth');
@@ -34,7 +29,7 @@ class HomeController extends Controller
         $pageViews = new PageViews(auth()->user());
 
         return view('home', [
-            'pageviews' => $pageViews->lastDays($daysBack, $domain, $customer),
+            'pageviews' => $pageViews->daysBack($daysBack, $domain, $customer),
             'domains' => $pageViews->domains(),
             'customers' => Customer::select('id')->where('user_id', auth()->user()->id)->get(),
         ]);

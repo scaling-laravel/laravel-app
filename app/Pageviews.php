@@ -12,7 +12,7 @@ class Pageviews
         $this->user = $user;
     }
 
-    public function lastDays($days, $domain=null, $customer=null)
+    public function daysBack($days, $domain=null, $customer=null)
     {
         // Get very beginning of the day, $date days ago
         $date = new \DateTime(date('Y-m-d', strtotime('-'.$days.' days')));
