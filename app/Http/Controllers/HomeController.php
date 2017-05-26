@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Customer;
-use App\Pageviews;
+use App\Analytics\Pageview;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -16,17 +16,15 @@ class HomeController extends Controller
     /**
      * Show the application dashboard.
      *
+     * @param Pageview $pageViews
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Pageview $pageViews)
     {
         // Filters
         $daysBack = (int)request()->get('timeline', 7);
         $domain = request()->get('domain', null);
         $customer = request()->get('customer', null);
-
-        // Pageview "Repository"
-        $pageViews = new PageViews(auth()->user());
 
         return view('home', [
             'pageviews' => $pageViews->daysBack($daysBack, $domain, $customer),

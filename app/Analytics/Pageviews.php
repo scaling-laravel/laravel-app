@@ -1,10 +1,13 @@
 <?php
 
-namespace App;
+namespace App\Analytics;
 
 use DB;
+use DateTime;
+use App\User;
+use App\Pageview as Views;
 
-class Pageviews
+class Pageviews implements Pageview
 {
 
     public function __construct(User $user)
@@ -15,9 +18,9 @@ class Pageviews
     public function daysBack($days, $domain=null, $customer=null)
     {
         // Get very beginning of the day, $date days ago
-        $date = new \DateTime(date('Y-m-d', strtotime('-'.$days.' days')));
+        $date = new DateTime(date('Y-m-d', strtotime('-'.$days.' days')));
 
-        $query = Pageview::select(DB::raw('COUNT(id) as daily_total, DATE(created_at) as date'))
+        $query = Views::select(DB::raw('COUNT(id) as daily_total, DATE(created_at) as date'))
             ->where('user_id', $this->user->id)
             ->where('created_at', '>=', $date)
             ->groupBy('date')
@@ -31,7 +34,7 @@ class Pageviews
 
     public function domains()
     {
-        return Pageview::select(DB::raw('DISTINCT domain'))
+        return Views::select(DB::raw('DISTINCT domain'))
             ->where('user_id', $this->user->id)
             ->get();
     }
