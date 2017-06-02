@@ -17,7 +17,7 @@ class AddPageviewsIndexes extends Migration
             # $table->index(['user_id', 'domain']); // We dropped this one, [domain, user_id] was less efficient
             $table->index(['user_id', 'customer_id']);
             $table->index(['domain', 'user_id']);
-            $table->index(['user_id', 'customer_id']);
+            $table->index(['user_id', 'created_at']);
         });
     }
 
